@@ -15,4 +15,4 @@ For other questions related to this project, contact [github@fortinet.com](mailt
 
 ## Notes 
 [Fortinet GitHub](https://github.com/fortinet/fortigate-terraform-deploy) 
-Removed everything but AWS
+Removed everything but AWS.
