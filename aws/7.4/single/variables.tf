@@ -1,26 +1,26 @@
 //AWS Configuration
-variable "access_key" {}
-variable "secret_key" {}
+#variable "access_key" {}
+#variable "secret_key" {}
 
 variable "region" {
-  default = "eu-west-1"
+  default = "us-east-1"
 }
 
 // Availability zones for the region
 variable "az1" {
-  default = "eu-west-1a"
+  default = "us-east-1a"
 }
 
 variable "vpccidr" {
-  default = "10.1.0.0/16"
+  default = "10.200.0.0/16"
 }
 
 variable "publiccidraz1" {
-  default = "10.1.0.0/24"
+  default = "10.200.1.0/24"
 }
 
 variable "privatecidraz1" {
-  default = "10.1.1.0/24"
+  default = "10.200.2.0/24"
 }
 
 
@@ -69,7 +69,7 @@ variable "fgtami" {
       },
       x86 = {
         payg = "ami-098e97a910bb6eaeb"
-        byol = "ami-0923e9b937688b139"
+        byol = "ami-0d8ab3309f7946a19"
       }
     },
     us-east-2 = {
@@ -252,7 +252,7 @@ variable "fgtami" {
         byol = "ami-07dbe0f8d94f6bb10"
       }
     },
-    eu-west-1 = {
+    us-east-1 = {
       arm = {
         payg = "ami-008fa6110fa04ffbf"
         byol = "ami-0867d7d6d027c612c"
@@ -367,7 +367,7 @@ variable "fgtami" {
 
 //  Existing SSH Key on the AWS 
 variable "keyname" {
-  default = "<AWS SSH KEY>"
+  default = "MLR-LAB-KEY.pem"
 }
 
 variable "adminsport" {
