@@ -1,7 +1,4 @@
 //AWS Configuration
-variable "access_key" {}
-variable "secret_key" {}
-
 variable "region" {
   default = "eu-west-1"
 }
@@ -23,31 +20,16 @@ variable "privatecidraz1" {
   default = "10.1.1.0/24"
 }
 
-
 // License Type to create FortiGate-VM
 // Provide the license type for FortiGate-VM Instances, either byol or payg.
 variable "license_type" {
   default = "payg"
 }
 
-// BYOL License format to create FortiGate-VM
-// Provide the license type for FortiGate-VM Instances, either token or file.
-variable "license_format" {
-  default = "file"
-}
-
 // instance architect
 // Either arm or x86
 variable "arch" {
   default = "x86"
-}
-
-// use s3 bucket for bootstrap
-// Either true or false
-//
-variable "bucket" {
-  type    = bool
-  default = false
 }
 
 // instance type needs to match the architect
@@ -365,25 +347,7 @@ variable "fgtami" {
   }
 }
 
-//  Existing SSH Key on the AWS 
+//  Existing SSH Key on the AWS
 variable "keyname" {
   default = "<AWS SSH KEY>"
-}
-
-variable "adminsport" {
-  default = "8443"
-}
-
-variable "bootstrap_fgtvm" {
-  // Change to your own path
-  type    = string
-  default = "fgtvm.conf"
-}
-
-
-// license file for the active fgt
-variable "license" {
-  // Change to your own byol license file, license.lic
-  type    = string
-  default = "license.lic"
 }
