@@ -1,3 +1,6 @@
-// AWS Environment
-access_key = "<AWS access key>"
-secret_key = "<AWS secret key>"
+# Example variable overrides
+region   = "eu-west-1"
+az1      = "eu-west-1a"
+keyname  = "<AWS SSH KEY>"
+size     = "c5.xlarge"
+arch     = "x86"
