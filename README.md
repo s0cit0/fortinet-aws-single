@@ -1,8 +1,11 @@
 # Terraform Deployment Scripts
 ## Introduction
-This project includes a set of terraform scripts for getting started AWS with Fortinet.
+This project includes a streamlined set of Terraform scripts for getting started on AWS with Fortinet. The repository now
+focuses solely on the **single FortiGate topology**, which provisions one FortiGate-VM instance with the necessary
+networking components for a basic deployment. The previous collection of high-availability and advanced topologies has been
+removed to keep the scope intentionally minimal.
 
-* [AWS](https://github.com/s0cit0/fortinet-aws-single/tree/4cd73206b23760f3813b3906b6c8f18a3973e80b/aws)
+* [AWS Single Topology](https://github.com/s0cit0/fortinet-aws-single/tree/main/aws/7.4/single)
 
 
 ## Support
