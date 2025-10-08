@@ -5,7 +5,8 @@ resource "aws_vpc" "fgtvm-vpc" {
   enable_dns_hostnames = true
   instance_tenancy     = "default"
   tags = {
-    Name = "MLR-LAB"
+    Name    = "fgtvm-vpc"
+    Project = "MLR-LAB"
   }
 }
 
@@ -14,7 +15,8 @@ resource "aws_subnet" "publicsubnetaz1" {
   cidr_block        = var.publiccidraz1
   availability_zone = var.az1
   tags = {
-    Name = "MLR-LAB"
+    Name    = "publicsubnetaz1"
+    Project = "MLR-LAB"
   }
 }
 
@@ -23,6 +25,7 @@ resource "aws_subnet" "privatesubnetaz1" {
   cidr_block        = var.privatecidraz1
   availability_zone = var.az1
   tags = {
-    Name = "MLR-LAB"
+    Name    = "privatesubnetaz1"
+    Project = "MLR-LAB"
   }
 }

@@ -32,7 +32,8 @@ resource "aws_network_interface" "eth1" {
   source_dest_check = false
 
   tags = {
-    Name = "MLR-LAB"
+    Name    = "fgtvm-port2"
+    Project = "MLR-LAB"
   }
 }
 
@@ -93,6 +94,7 @@ resource "aws_instance" "fgtvm" {
   }
 
   tags = {
-    Name = "MLR-LAB"
+    Name    = "fgtvm"
+    Project = "MLR-LAB"
   }
 }
