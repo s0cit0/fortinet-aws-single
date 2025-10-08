@@ -30,6 +30,10 @@ resource "aws_network_interface" "eth1" {
   description       = "fgtvm-port2"
   subnet_id         = aws_subnet.privatesubnetaz1.id
   source_dest_check = false
+
+  tags = {
+    Name = "MLR-LAB"
+  }
 }
 
 resource "aws_network_interface_sg_attachment" "internalattachment" {
@@ -89,6 +93,6 @@ resource "aws_instance" "fgtvm" {
   }
 
   tags = {
-    Name = "FortiGateVM"
+    Name = "MLR-LAB"
   }
 }
