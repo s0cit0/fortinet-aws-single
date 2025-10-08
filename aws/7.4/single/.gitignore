@@ -9,3 +9,6 @@
 *.tfstate.backup
 *.csv
 .terraform/
+
+# Ignore macOS system files
+.DS_Store
