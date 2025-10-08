@@ -1,8 +1,8 @@
 # Terraform Deployment Scripts
 ## Introduction
-This project includes a set of terraform scripts for getting started with different cloud-providers with Fortinet.
+This project includes a set of terraform scripts for getting started AWS with Fortinet.
 
-* [AWS](https://github.com/fortinet/fortigate-terraform-deploy/tree/main/aws)
+* [AWS](https://github.com/s0cit0/fortinet-aws-single/tree/4cd73206b23760f3813b3906b6c8f18a3973e80b/aws)
 
 
 ## Support
