@@ -17,7 +17,7 @@ I have cloned and adapted it to meet specific requirements by removing unnecessa
 
 ## License and Attribution
 
-This repository retains the original license from Fortinet, which is [LICENSE TYPE] — see [LICENSE](./LICENSE) for full details.
+This repository retains the original license from Fortinet, which is the **MIT License** — see [LICENSE](./LICENSE) for full details.
 
 Original Repository: [fortinet/fortigate-terraform-deploy](https://github.com/fortinet/fortigate-terraform-deploy)
 
