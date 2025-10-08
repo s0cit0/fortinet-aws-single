@@ -19,7 +19,8 @@ resource "aws_iam_role" "fortigate" {
   })
 
   tags = {
-    Name = "MLR-LAB"
+    Name    = "fgtiamrole${random_string.random_name_post.result}"
+    Project = "MLR-LAB"
   }
 }
 
@@ -68,7 +69,8 @@ resource "aws_s3_bucket" "s3_bucket" {
   bucket = "ftnts3boot${random_string.random_name_post.result}"
 
   tags = {
-    Name = "MLR-LAB"
+    Name    = "ftnts3boot${random_string.random_name_post.result}"
+    Project = "MLR-LAB"
   }
 }
 
@@ -82,7 +84,8 @@ resource "aws_s3_object" "lic1" {
   etag   = filemd5(var.license)
 
   tags = {
-    Name = "MLR-LAB"
+    Name    = var.license
+    Project = "MLR-LAB"
   }
 }
 
@@ -97,6 +100,7 @@ resource "aws_s3_object" "conf" {
   })
 
   tags = {
-    Name = "MLR-LAB"
+    Name    = var.bootstrap_fgtvm
+    Project = "MLR-LAB"
   }
 }
