@@ -77,7 +77,7 @@ resource "aws_s3_bucket" "s3_bucket" {
 # S3 Bucket license file for BYOL License
 #
 resource "aws_s3_object" "lic1" {
-  count  = var.bucket ? 1 : 0
+  count  = var.bucket && var.license_type == "byol" ? 1 : 0
   bucket = aws_s3_bucket.s3_bucket[0].id
   key    = var.license
   source = var.license
