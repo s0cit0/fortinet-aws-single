@@ -2,7 +2,7 @@
 resource "aws_internet_gateway" "fgtvmigw" {
   vpc_id = aws_vpc.fgtvm-vpc.id
   tags = {
-    Name = "fgtvm-igw"
+    Name = "MLR-LAB"
   }
 }
 
@@ -11,7 +11,7 @@ resource "aws_route_table" "fgtvmpublicrt" {
   vpc_id = aws_vpc.fgtvm-vpc.id
 
   tags = {
-    Name = "fgtvm-public-rt"
+    Name = "MLR-LAB"
   }
 }
 
@@ -19,7 +19,7 @@ resource "aws_route_table" "fgtvmprivatert" {
   vpc_id = aws_vpc.fgtvm-vpc.id
 
   tags = {
-    Name = "fgtvm-private-rt"
+    Name = "MLR-LAB"
   }
 }
 
@@ -51,6 +51,10 @@ resource "aws_eip" "FGTPublicIP" {
   depends_on = [aws_instance.fgtvm]
   domain     = "vpc"
   instance   = aws_instance.fgtvm.id
+
+  tags = {
+    Name = "MLR-LAB"
+  }
 }
 
 // Security Group
@@ -90,7 +94,7 @@ resource "aws_security_group" "public_allow" {
   }
 
   tags = {
-    Name = "Public Allow"
+    Name = "MLR-LAB"
   }
 }
 
@@ -114,6 +118,6 @@ resource "aws_security_group" "allow_all" {
   }
 
   tags = {
-    Name = "Public Allow"
+    Name = "MLR-LAB"
   }
 }

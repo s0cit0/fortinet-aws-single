@@ -5,7 +5,7 @@ resource "aws_vpc" "fgtvm-vpc" {
   enable_dns_hostnames = true
   instance_tenancy     = "default"
   tags = {
-    Name = "terraform demo"
+    Name = "MLR-LAB"
   }
 }
 
@@ -14,7 +14,7 @@ resource "aws_subnet" "publicsubnetaz1" {
   cidr_block        = var.publiccidraz1
   availability_zone = var.az1
   tags = {
-    Name = "public subnet az1"
+    Name = "MLR-LAB"
   }
 }
 
@@ -23,6 +23,6 @@ resource "aws_subnet" "privatesubnetaz1" {
   cidr_block        = var.privatecidraz1
   availability_zone = var.az1
   tags = {
-    Name = "private subnet az1"
+    Name = "MLR-LAB"
   }
 }

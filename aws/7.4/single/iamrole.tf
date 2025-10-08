@@ -17,6 +17,10 @@ resource "aws_iam_role" "fortigate" {
       }
     ]
   })
+
+  tags = {
+    Name = "MLR-LAB"
+  }
 }
 
 # IAM Policy for FortiGate to access the S3 Buckets
@@ -62,6 +66,10 @@ resource "aws_iam_instance_profile" "fortigate" {
 resource "aws_s3_bucket" "s3_bucket" {
   count  = var.bucket ? 1 : 0
   bucket = "ftnts3boot${random_string.random_name_post.result}"
+
+  tags = {
+    Name = "MLR-LAB"
+  }
 }
 
 # S3 Bucket license file for BYOL License
@@ -72,6 +80,10 @@ resource "aws_s3_object" "lic1" {
   key    = var.license
   source = var.license
   etag   = filemd5(var.license)
+
+  tags = {
+    Name = "MLR-LAB"
+  }
 }
 
 # S3 Bucket config file for storing fgtvm config
@@ -83,4 +95,8 @@ resource "aws_s3_object" "conf" {
   content = templatefile(var.bootstrap_fgtvm, {
     adminsport = var.adminsport
   })
+
+  tags = {
+    Name = "MLR-LAB"
+  }
 }
