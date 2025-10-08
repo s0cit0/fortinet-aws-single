@@ -30,7 +30,7 @@ resource "aws_route" "externalroute" {
 }
 
 resource "aws_route" "internalroute" {
-  depends_on             = [aws_instance.fgtvm]
+  depends_on             = [aws_network_interface_attachment.port2]
   route_table_id         = aws_route_table.fgtvmprivatert.id
   destination_cidr_block = "0.0.0.0/0"
   network_interface_id   = aws_network_interface.eth1.id
@@ -48,9 +48,9 @@ resource "aws_route_table_association" "internalassociate" {
 }
 
 resource "aws_eip" "FGTPublicIP" {
-  depends_on        = [aws_instance.fgtvm]
-  domain            = "vpc"
-  network_interface = aws_network_interface.eth0.id
+  depends_on = [aws_instance.fgtvm]
+  domain     = "vpc"
+  instance   = aws_instance.fgtvm.id
 }
 
 // Security Group

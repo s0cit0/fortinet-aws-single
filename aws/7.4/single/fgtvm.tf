@@ -26,27 +26,23 @@ locals {
   }) : null
 }
 
-resource "aws_network_interface" "eth0" {
-  description = "fgtvm-port1"
-  subnet_id   = aws_subnet.publicsubnetaz1.id
-}
-
 resource "aws_network_interface" "eth1" {
   description       = "fgtvm-port2"
   subnet_id         = aws_subnet.privatesubnetaz1.id
   source_dest_check = false
 }
 
-resource "aws_network_interface_sg_attachment" "publicattachment" {
-  depends_on           = [aws_network_interface.eth0]
-  security_group_id    = aws_security_group.public_allow.id
-  network_interface_id = aws_network_interface.eth0.id
-}
-
 resource "aws_network_interface_sg_attachment" "internalattachment" {
   depends_on           = [aws_network_interface.eth1]
   security_group_id    = aws_security_group.allow_all.id
   network_interface_id = aws_network_interface.eth1.id
+}
+
+resource "aws_network_interface_attachment" "port2" {
+  depends_on           = [aws_network_interface_sg_attachment.internalattachment]
+  instance_id          = aws_instance.fgtvm.id
+  network_interface_id = aws_network_interface.eth1.id
+  device_index         = 1
 }
 
 # Cloudinit config in MIME format
@@ -74,6 +70,8 @@ resource "aws_instance" "fgtvm" {
   instance_type     = var.size
   availability_zone = var.az1
   key_name          = var.keyname
+  subnet_id         = aws_subnet.publicsubnetaz1.id
+  vpc_security_group_ids = [aws_security_group.public_allow.id]
 
   user_data = var.bucket ? (var.license_format == "file" ? local.s3_user_data_file : local.s3_user_data_token) : data.cloudinit_config.config.rendered
 
@@ -88,16 +86,6 @@ resource "aws_instance" "fgtvm" {
     device_name = "/dev/sdb"
     volume_size = 30
     volume_type = "gp2"
-  }
-
-  network_interface {
-    network_interface_id = aws_network_interface.eth0.id
-    device_index         = 0
-  }
-
-  network_interface {
-    network_interface_id = aws_network_interface.eth1.id
-    device_index         = 1
   }
 
   tags = {
