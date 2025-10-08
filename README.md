@@ -14,5 +14,5 @@ For other questions related to this project, contact [github@fortinet.com](mailt
 [License](https://github.com/fortinet/fortigate-terraform-deploy/blob/master/LICENSE) © Fortinet Technologies. All rights reserved.
 
 ## Notes 
-[Fortinet GitHub] (https://github.com/fortinet/fortigate-terraform-deploy) 
+[Fortinet GitHub](https://github.com/fortinet/fortigate-terraform-deploy) 
 Removed everything but AWS
