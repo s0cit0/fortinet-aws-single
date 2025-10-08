@@ -79,8 +79,8 @@ resource "aws_s3_object" "lic1" {
 resource "aws_s3_object" "conf" {
   count  = var.bucket ? 1 : 0
   bucket = aws_s3_bucket.s3_bucket[0].id
-  key    = var.bootstrap-fgtvm
-  content = templatefile("${var.bootstrap-fgtvm}", {
-    adminsport = "${var.adminsport}"
+  key    = var.bootstrap_fgtvm
+  content = templatefile(var.bootstrap_fgtvm, {
+    adminsport = var.adminsport
   })
 }

@@ -47,7 +47,7 @@ variable "arch" {
 //
 variable "bucket" {
   type    = bool
-  default = "false"
+  default = false
 }
 
 // instance type needs to match the architect
@@ -374,7 +374,7 @@ variable "adminsport" {
   default = "8443"
 }
 
-variable "bootstrap-fgtvm" {
+variable "bootstrap_fgtvm" {
   // Change to your own path
   type    = string
   default = "fgtvm.conf"
